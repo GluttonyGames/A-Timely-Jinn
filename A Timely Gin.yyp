@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "03e6d473-b113-49ac-b2d8-1c1aebc54b70",
+            "Value": {
+                "id": "69b5d325-41cc-4e25-a6f7-fe0058121248",
+                "resourcePath": "objects\\nameitrealquick\\nameitrealquick.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "04c6a5f4-a256-4079-bbe9-f5f6baf83934",
             "Value": {
                 "id": "54db0176-fd52-495a-8ec7-025125314c7b",
