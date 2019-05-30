@@ -1,7 +1,11 @@
 /// @description Move and do other stuff
-
-var _x_input = round(gamepad_axis_value(0, gp_axislh));
-var _y_input = round(gamepad_axis_value(0, gp_axislv));
+if(gamepad_is_connected(0) && gamepad_is_supported()) {
+	var _x_input = round(gamepad_axis_value(0, gp_axislh));
+	var _y_input = round(gamepad_axis_value(0, gp_axislv));
+} else {
+	var _x_input = keyboard_check(vk_right) - keyboard_check(vk_left);
+	var _y_input = keyboard_check(vk_down) - keyboard_check(vk_up);
+}
 
 x_speed_ += _x_input * acceleration_;
 y_speed_ += _y_input * acceleration_;
