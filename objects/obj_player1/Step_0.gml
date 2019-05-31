@@ -47,7 +47,7 @@ x += x_speed_;
 if (x_speed_ > 0) {
 	// Collide right
 	image_xscale = 1;
-	if (grid_place_meeting(self, obj_level.grid_)) {
+	if (grid_place_meeting(self, obj_world_loader.grid_)) {
 		x = bbox_right&~(CELL_WIDTH-1);
 		x -= bbox_right-x;
 		x_speed_ = 0;
@@ -55,7 +55,7 @@ if (x_speed_ > 0) {
 } else if (x_speed_ < 0){
 	// Collide left
 	image_xscale = -1;
-	if (grid_place_meeting(self, obj_level.grid_)) {
+	if (grid_place_meeting(self, obj_world_loader.grid_)) {
 		x = bbox_left&~(CELL_WIDTH-1);
 		x += CELL_WIDTH+x-bbox_left;
 		x_speed_ = 0;
@@ -66,14 +66,14 @@ y += y_speed_;
 
 if (y_speed_ > 0) {
 	// Collide down
-	if (grid_place_meeting(self, obj_level.grid_)) {
+	if (grid_place_meeting(self, obj_world_loader.grid_)) {
 		y = bbox_bottom&~(CELL_HEIGHT-1);
 		y -= bbox_bottom-y;
 		y_speed_ = 0;
 	}
 } else if (y_speed_ < 0){
 	// Collide up
-	if (grid_place_meeting(self, obj_level.grid_)) {
+	if (grid_place_meeting(self, obj_world_loader.grid_)) {
 		y = bbox_top&~(CELL_HEIGHT-1);
 		y += CELL_HEIGHT+y-bbox_top;
 		y_speed_ = 0;

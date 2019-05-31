@@ -1,5 +1,5 @@
-#macro CELL_WIDTH 32
-#macro CELL_HEIGHT 32
+#macro CELL_WIDTH 16
+#macro CELL_HEIGHT 16
 /**
 #macro FLOOR -5
 #macro WALL -6
@@ -9,7 +9,3 @@
 #macro EAST 4
 #macro SOUTH 8
 **/
-
-#macro VOID 0
-#macro WALL_CENTER 7
-#macro FLOOR 2
