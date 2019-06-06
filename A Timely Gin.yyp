@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "18a57212-f787-4cde-a91f-ba0a4dffd9a1",
+            "Value": {
+                "id": "afb25255-7f0c-4e8e-98e9-356166387448",
+                "resourcePath": "datafiles_yy\\leveldata.zip.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "2ac61d6e-de67-4ee3-88bc-27d07171c2bd",
             "Value": {
                 "id": "1120a574-b0d1-4402-bc1b-12b5b2e2a330",
