@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "13a59daa-b131-422f-804c-3dc08a17831f",
+            "Value": {
+                "id": "043d222a-a0a3-4fdc-b547-30bc16fdd9f0",
+                "resourcePath": "scripts\\grid_xy_meeting\\grid_xy_meeting.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "14221e8b-5814-4d6a-ac07-e3999710bf88",
             "Value": {
                 "id": "41f89af8-7e0e-4125-b2a5-3ff7f4d65e49",
@@ -92,6 +100,14 @@
                 "id": "68c240c8-4ee0-4f6f-b6c1-32f26a4cdceb",
                 "resourcePath": "scripts\\tile_direction\\tile_direction.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "309f9475-4a99-493b-b8e6-4c16ab8a0f97",
+            "Value": {
+                "id": "8aa5173b-722e-4655-a445-45dcca6e3fdf",
+                "resourcePath": "objects\\obj_weapon\\obj_weapon.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -143,6 +159,14 @@
             }
         },
         {
+            "Key": "4b74933b-894a-4a2c-ac40-eb0b76ebcd3a",
+            "Value": {
+                "id": "6de3d557-0ba1-4662-9986-bfa2c339e738",
+                "resourcePath": "scripts\\draw_arc\\draw_arc.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "62433cdc-460b-49e7-b10f-b95f14df9b29",
             "Value": {
                 "id": "6d4589fe-b95d-4cb2-8784-de62c28db8fb",
@@ -156,6 +180,14 @@
                 "id": "1fb63149-1390-4478-acf0-72bc919592f3",
                 "resourcePath": "objects\\obj_camera\\obj_camera.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "6eef3433-c52a-4e64-9051-ffe4b4cefa1d",
+            "Value": {
+                "id": "dff46d3e-9ff6-4df5-8708-f6dd5b264f3d",
+                "resourcePath": "sprites\\spr_sword_0\\spr_sword_0.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -348,7 +380,9 @@
         "830ed128-7e73-493e-a84d-58de08d76fe5",
         "bafaf5c7-3143-4987-9c2a-fd60ff434b3f",
         "2b46c5d8-0f69-48c1-a5cb-9d5ab9945e5b",
-        "8bc9ba0c-3b0b-4f6a-9000-ba3e88f0b851"
+        "8bc9ba0c-3b0b-4f6a-9000-ba3e88f0b851",
+        "4b74933b-894a-4a2c-ac40-eb0b76ebcd3a",
+        "13a59daa-b131-422f-804c-3dc08a17831f"
     ],
     "tutorial": ""
 }

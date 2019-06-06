@@ -1,48 +1,28 @@
 {
-    "id": "33ca4662-df6b-4335-b5ec-ea1aa50572c6",
+    "id": "309f9475-4a99-493b-b8e6-4c16ab8a0f97",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_player1",
+    "name": "obj_weapon",
     "eventList": [
         {
-            "id": "02b24cba-1d50-4548-a96e-f5366c3b0786",
+            "id": "58074346-c8fe-4a2d-ba91-85aa3ad6f68c",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "33ca4662-df6b-4335-b5ec-ea1aa50572c6"
+            "m_owner": "309f9475-4a99-493b-b8e6-4c16ab8a0f97"
         },
         {
-            "id": "2a99b164-5cbd-45ce-9f91-a47d6ef16902",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "33ca4662-df6b-4335-b5ec-ea1aa50572c6"
-        },
-        {
-            "id": "3ac2be69-c97e-42d9-a354-9e439454f76e",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "309f9475-4a99-493b-b8e6-4c16ab8a0f97",
-            "enumb": 0,
-            "eventtype": 4,
-            "m_owner": "33ca4662-df6b-4335-b5ec-ea1aa50572c6"
-        },
-        {
-            "id": "1ee0521b-12a4-44dc-8477-292bcd95d42e",
+            "id": "7d7f9ec4-670c-4637-904c-124a02cc9163",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 8,
-            "m_owner": "33ca4662-df6b-4335-b5ec-ea1aa50572c6"
+            "m_owner": "309f9475-4a99-493b-b8e6-4c16ab8a0f97"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -63,6 +43,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "c3317c03-644b-4fb2-b186-2b71d95cfcb1",
-    "visible": true
+    "spriteId": "6eef3433-c52a-4e64-9051-ffe4b4cefa1d",
+    "visible": false
 }

@@ -29,19 +29,6 @@ if (_x_input == 0 && _y_input == 0) {
 	image_speed = 0.7;
 }
 
-/*
-// Keep in camera view
-width_ = camera_get_view_width(view_camera[0]);
-height_ = camera_get_view_height(view_camera[0]);
-
-if (point_distance(x+x_speed_,0,obj_camera.x,0) > (width_/2)-16) {
-	x_speed_ = 0;
-}
-if (point_distance(0,y+y_speed_,0,obj_camera.y) > (height_/2)-16) {
-	y_speed_ = 0;
-}
-*/
-
 x += x_speed_;
 
 if (x_speed_ > 0) {
@@ -77,5 +64,18 @@ if (y_speed_ > 0) {
 		y = bbox_top&~(CELL_HEIGHT-1);
 		y += CELL_HEIGHT+y-bbox_top;
 		y_speed_ = 0;
+	}
+}
+
+check_timer --;
+if (mouse_wheel_down() && check_timer < 0) {
+	check_timer = 20;
+	if (current_weapon > 0) {
+		current_weapon --;
+	}
+} else if (mouse_wheel_up() && check_timer < 0) {
+	check_timer = 20;
+	if (current_weapon < array_height_2d(held_weapons)) {
+		current_weapon ++;
 	}
 }
