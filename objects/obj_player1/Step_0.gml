@@ -75,7 +75,9 @@ if (mouse_wheel_down() && check_timer < 0) {
 	}
 } else if (mouse_wheel_up() && check_timer < 0) {
 	check_timer = 20;
-	if (current_weapon < array_height_2d(held_weapons)) {
-		current_weapon ++;
+	if (current_weapon < 32) {
+		if (ds_grid_get(held_weapons, current_weapon+1, 0) != -1) {
+			current_weapon ++;
+		}
 	}
 }

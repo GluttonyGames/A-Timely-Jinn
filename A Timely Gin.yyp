@@ -194,7 +194,7 @@
             "Key": "6eef3433-c52a-4e64-9051-ffe4b4cefa1d",
             "Value": {
                 "id": "dff46d3e-9ff6-4df5-8708-f6dd5b264f3d",
-                "resourcePath": "sprites\\spr_sword_0\\spr_sword_0.yy",
+                "resourcePath": "sprites\\spr_weapon\\spr_weapon.yy",
                 "resourceType": "GMSprite"
             }
         },

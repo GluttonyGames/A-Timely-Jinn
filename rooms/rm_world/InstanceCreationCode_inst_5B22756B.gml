@@ -1,0 +1,1 @@
+weapon_id = 6;
