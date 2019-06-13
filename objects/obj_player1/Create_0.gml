@@ -11,3 +11,7 @@ ds_grid_set_region(held_weapons, 0, 0, 8, 31, -1);
 number_of_weapons = 0;
 
 check_timer = 20;
+
+health_ = 100;
+
+reload_ = 0;

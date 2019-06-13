@@ -24,3 +24,7 @@ if (number_of_weapons != 0) {
 }
 
 // Healthbar
+draw_set_alpha(1);
+draw_rectangle_color(2, view_get_hport(0)-28, 54, view_get_hport(0)-34, c_black, c_black, c_black, c_black, false);
+var x_ = round(53*(health_/100))
+draw_rectangle_color(3, view_get_hport(0)-29, x_, view_get_hport(0)-33, c_blue, c_blue, c_blue, c_blue, false);
