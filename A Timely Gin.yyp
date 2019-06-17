@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "1faa5232-5ced-484e-8c53-a9a2294f1ca4",
+            "Value": {
+                "id": "63faf41f-fcda-4cc5-bfcd-ab2deb0a5dd5",
+                "resourcePath": "scripts\\melee_attack\\melee_attack.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "24aee704-e425-446f-b10d-49642e4be46e",
             "Value": {
                 "id": "fb63a215-5369-44be-bb8e-466062b33d87",
@@ -191,6 +199,14 @@
             }
         },
         {
+            "Key": "666246e6-b66d-4659-8583-90824527599e",
+            "Value": {
+                "id": "e6393f32-24bb-4a46-b635-dc7df5649d7d",
+                "resourcePath": "scripts\\object_max_angle\\object_max_angle.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6cebb3df-3379-455f-9bbb-31f155c73f60",
             "Value": {
                 "id": "1fb63149-1390-4478-acf0-72bc919592f3",
@@ -276,6 +292,14 @@
                 "id": "d269b9c3-9622-4323-86e1-c8b4029b455b",
                 "resourcePath": "views\\8c670338-253c-41b3-a302-b2049130b344.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "96a8d3fb-1eda-46bc-89db-3a874a655636",
+            "Value": {
+                "id": "e9dfeebe-65eb-4d9b-bde0-1755bb6deec1",
+                "resourcePath": "scripts\\point_object_distance\\point_object_distance.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -406,7 +430,10 @@
         "2b46c5d8-0f69-48c1-a5cb-9d5ab9945e5b",
         "8bc9ba0c-3b0b-4f6a-9000-ba3e88f0b851",
         "4b74933b-894a-4a2c-ac40-eb0b76ebcd3a",
-        "13a59daa-b131-422f-804c-3dc08a17831f"
+        "13a59daa-b131-422f-804c-3dc08a17831f",
+        "1faa5232-5ced-484e-8c53-a9a2294f1ca4",
+        "96a8d3fb-1eda-46bc-89db-3a874a655636",
+        "666246e6-b66d-4659-8583-90824527599e"
     ],
     "tutorial": ""
 }
