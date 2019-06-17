@@ -1,15 +1,7 @@
 /// @description GUI
 
 // Debug drawing
-draw_text(10, 10, current_weapon);
-
-var enemy = instance_find(obj_enemy, 0);
-var enemy_angle = point_direction(x, y, enemy.x, enemy.y); // Get angle between player and enemy
-var enemy_distance = point_distance(x, y, enemy.x, enemy.y); // Get distance between player and enemy
-var direction_ = point_direction(x, y, mouse_x, mouse_y); // Get direction of mouse from player
-draw_text(10, 25, enemy_angle);
-draw_text(10, 40, enemy_distance);
-draw_text(10, 55, direction_);
+draw_text(10, 10, held_weapons[# current_weapon, W_DURABILITY]);
 
 // Hotbar
 draw_set_alpha(1); // Top black bar

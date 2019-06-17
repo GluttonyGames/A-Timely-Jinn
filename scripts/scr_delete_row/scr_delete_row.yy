@@ -1,8 +1,8 @@
 {
-    "id": "666246e6-b66d-4659-8583-90824527599e",
+    "id": "5d79c36c-f420-46d0-ae03-36dedc372621",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "object_max_angle",
+    "name": "scr_delete_row",
     "IsCompatibility": false,
     "IsDnD": false
 }

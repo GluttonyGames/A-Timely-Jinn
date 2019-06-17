@@ -69,13 +69,13 @@ if (y_speed_ > 0) {
 
 check_timer --;
 if (mouse_wheel_down() && check_timer < 0) {
-	check_timer = 20;
+	check_timer = 10;
 	if (current_weapon > 0) {
 		current_weapon --;
 		reload_ = held_weapons[# current_weapon, W_RELOAD];
 	}
 } else if (mouse_wheel_up() && check_timer < 0) {
-	check_timer = 20;
+	check_timer = 10;
 	if (current_weapon < 32) {
 		if (held_weapons[# current_weapon+1, W_ID] != -1) {
 			current_weapon ++;

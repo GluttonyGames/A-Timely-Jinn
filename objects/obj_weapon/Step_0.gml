@@ -8,7 +8,7 @@ switch(weapon_id) {
 		weapon_spread = 90;
 		weapon_shield = 45;
 		weapon_distance = 24;
-		weapon_durability = 100;
+		weapon_durability = 10;
 		weapon_knockback = 20;
 		weapon_reload = 1 * 60;
 		weapon_weight = 2;
@@ -45,7 +45,7 @@ switch(weapon_id) {
 		break;
 	case 4: // Double Axe
 		weapon_damage = 35;
-		weapon_spread = 360;
+		weapon_spread = 359;
 		weapon_shield = 45;
 		weapon_distance = 32;
 		weapon_durability = 110;

@@ -15,3 +15,6 @@ check_timer = 20;
 health_ = 100;
 
 reload_ = 0;
+
+color = c_gray;
+alpha = 1;
