@@ -1,32 +1,48 @@
 /// @description GUI
+window_width = window_get_width();
+window_height = window_get_height();
 
 // Debug drawing
-draw_text(10, 10, held_weapons[# current_weapon, W_DURABILITY]);
+//draw_text(10, 10, held_weapons[# current_weapon, W_DURABILITY]);
+ds_grid_print(held_weapons, 5, 5);
 
 // Hotbar
-draw_set_alpha(1); // Top black bar
-draw_rectangle_color(0, view_get_hport(0)-26, view_get_wport(0)-1, view_get_hport(0)-24-1, c_black, c_black, c_black, c_black, false);
+var bbox_thickness = 8;
+var bbox_inner_height = 128;
+var distance_to_edge = 16;
+var right_edge_fix = 6;
+draw_set_alpha(1);
+draw_rectangle_color(distance_to_edge, window_height-distance_to_edge, window_width/2-distance_to_edge-right_edge_fix, window_height-bbox_thickness-distance_to_edge, c_black, c_black, c_black, c_black, false);  // Bottom black bar
+draw_rectangle_color(distance_to_edge, window_height-distance_to_edge-bbox_inner_height, window_width/2-distance_to_edge-right_edge_fix, window_height-bbox_thickness-distance_to_edge-bbox_inner_height, c_black, c_black, c_black, c_black, false);  // Top black bar
+
+draw_rectangle_color(distance_to_edge, window_height-distance_to_edge, distance_to_edge+bbox_thickness-2, window_height-distance_to_edge-bbox_inner_height-bbox_thickness, c_black, c_black, c_black, c_black, false);  // Left black bar
+draw_rectangle_color(window_width/2-distance_to_edge-right_edge_fix-bbox_thickness+2, window_height-distance_to_edge, window_width/2-distance_to_edge-right_edge_fix, window_height-distance_to_edge-bbox_inner_height-bbox_thickness, c_black, c_black, c_black, c_black, false);  // Right black bar
+
 draw_set_alpha(.8); // Main gray rectangle
-draw_rectangle_color(0, view_get_hport(0)-24, view_get_wport(0)-1, view_get_hport(0)-1, c_gray, c_gray, c_gray, c_gray, false);
+draw_rectangle_color(distance_to_edge+bbox_thickness-2, window_height-bbox_inner_height-distance_to_edge, window_width/2-distance_to_edge-right_edge_fix-bbox_thickness+2, window_height-distance_to_edge-bbox_thickness, c_gray, c_gray, c_gray, c_gray, false);
+
 draw_set_alpha(.2); // Center white square
-draw_rectangle_color((view_get_wport(0)/2)-12, view_get_hport(0)-24, (view_get_wport(0)/2)+12-1, view_get_hport(0)-1, c_white, c_white, c_white, c_white, false);
+draw_rectangle_color(window_width/4-bbox_inner_height/2+6, window_height-distance_to_edge-bbox_inner_height, window_width/4+bbox_inner_height/2-6, window_height-distance_to_edge-bbox_thickness, c_white, c_white, c_white, c_white, false);
 draw_set_alpha(1);
 
 if (number_of_weapons != 0) {
 	for(var i=0; i < number_of_weapons; i++) {
 		var index = held_weapons[# i, W_ID];
-		var base_x = view_get_wport(0)/2;
-		var base_y = view_get_hport(0)-12;
-		var shift_x = 22*current_weapon
-		var final_x = (base_x)+(22*i)-shift_x
-		if ((final_x+8) < view_get_wport(0)) {
-			draw_sprite_ext(spr_weapon, index, final_x, base_y, 1, 1, 0, c_white, 1);
+		var base_x = window_width/4;
+		var base_y = window_height-distance_to_edge-bbox_inner_height/2-4;
+		var shift_x = 7*16*current_weapon
+		var final_x = (base_x)+(7*16*i)-shift_x
+		if ((final_x+7*16) < window_width/2+bbox_thickness*8) {
+			draw_sprite_ext(spr_weapon, index, final_x, base_y, 5, 5, 0, c_white, 1);
 		}
 	}
 }
 
 // Healthbar
+var healthbar_length = 400;
+var healthbar_width = 40;
+var distance_between = 30;
 draw_set_alpha(1);
-draw_rectangle_color(2, view_get_hport(0)-28, 54, view_get_hport(0)-34, c_black, c_black, c_black, c_black, false);
-var x_ = round(53*(health_/100))
-draw_rectangle_color(3, view_get_hport(0)-29, x_, view_get_hport(0)-33, c_blue, c_blue, c_blue, c_blue, false);
+draw_rectangle_color(distance_to_edge, window_height-bbox_thickness-distance_to_edge-bbox_inner_height-distance_between, distance_to_edge+healthbar_length, window_height-bbox_thickness-distance_to_edge-bbox_inner_height-distance_between-healthbar_width, c_black, c_black, c_black, c_black, false);
+var x_ = round(healthbar_length*(health_/100)) + bbox_thickness
+draw_rectangle_color(distance_to_edge+bbox_thickness, window_height-bbox_thickness-distance_to_edge-bbox_inner_height-distance_between-bbox_thickness, x_, window_height-bbox_thickness-distance_to_edge-bbox_inner_height-distance_between-healthbar_width+bbox_thickness, c_blue, c_blue, c_blue, c_blue, false);

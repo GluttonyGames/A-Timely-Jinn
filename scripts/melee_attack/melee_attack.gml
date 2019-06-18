@@ -19,7 +19,7 @@ player_.reload_ = weapon_array_[# current_weapon_, W_RELOAD]; // Reset reload ba
 weapon_array_[# current_weapon_, W_DURABILITY] -= 1; // Subtract damage from weapon durability
 if (weapon_array_[# current_weapon_, W_DURABILITY] < 1) {
 	ds_grid_set_region(weapon_array_, current_weapon_, W_ID, current_weapon_, W_WEIGHT, -1);
+	scr_delete_row(weapon_array_, current_weapon_);
 	current_weapon_ = 0;
 	player_.number_of_weapons -= 1;
-	ds_grid_shift_vertical(weapon_array_, -1, 1);
 }
