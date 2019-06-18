@@ -8,9 +8,9 @@ switch(weapon_id) {
 		weapon_spread = 90;
 		weapon_shield = 45;
 		weapon_distance = 24;
-		weapon_durability = 10;
+		weapon_durability = 100;
 		weapon_knockback = 20;
-		weapon_reload = 1 * 60;
+		weapon_reload = 30;
 		weapon_weight = 2;
 		break;
 	case 1: // Big Sword
@@ -20,7 +20,7 @@ switch(weapon_id) {
 		weapon_distance = 32;
 		weapon_durability = 125;
 		weapon_knockback = 40;
-		weapon_reload = 4 * 60;
+		weapon_reload = 3 * 60;
 		weapon_weight = 6;
 		break;
 	case 2: // Little Sword
@@ -30,7 +30,7 @@ switch(weapon_id) {
 		weapon_distance = 15;
 		weapon_durability = 200;
 		weapon_knockback = 4;
-		weapon_reload = 2 * 60;
+		weapon_reload = 1 * 60;
 		weapon_weight = 1;
 		break;
 	case 3: // Axe
@@ -40,7 +40,7 @@ switch(weapon_id) {
 		weapon_distance = 32;
 		weapon_durability = 100;
 		weapon_knockback = 60;
-		weapon_reload = 5 * 60;
+		weapon_reload = 4 * 60;
 		weapon_weight = 4;
 		break;
 	case 4: // Double Axe
@@ -50,7 +50,7 @@ switch(weapon_id) {
 		weapon_distance = 32;
 		weapon_durability = 110;
 		weapon_knockback = 70;
-		weapon_reload = 7 * 60;
+		weapon_reload = 6 * 60;
 		weapon_weight = 6;
 		break;
 	case 5: // Large Knife
@@ -60,7 +60,7 @@ switch(weapon_id) {
 		weapon_distance = 28;
 		weapon_durability = 100;
 		weapon_knockback = 60;
-		weapon_reload = 5 * 60;
+		weapon_reload = 4 * 60;
 		weapon_weight = 4;
 		break;
 	case 6: // Large Block
@@ -70,7 +70,7 @@ switch(weapon_id) {
 		weapon_distance = 32;
 		weapon_durability = 120;
 		weapon_knockback = 60;
-		weapon_reload = 8 * 60;
+		weapon_reload = 7 * 60;
 		weapon_weight = 7;
 		break;
 	case 7: // Large Fork
@@ -80,7 +80,7 @@ switch(weapon_id) {
 		weapon_distance = 42;
 		weapon_durability = 70;
 		weapon_knockback = 20;
-		weapon_reload = 1 * 60;
+		weapon_reload = 30;
 		weapon_weight = 1;
 		break;
 }

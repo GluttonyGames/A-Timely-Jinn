@@ -12,6 +12,7 @@ if (number_of_weapons < 32) {
 		held_weapons[# 0, W_WEIGHT] = other.weapon_weight;
 	} else {
 		var n = number_of_weapons	/// [id, damage, spread, shield, distance]
+		ds_grid_resize(held_weapons, n+1, 9);
 		held_weapons[# n, W_ID] = other.weapon_id;
 		held_weapons[# n, W_DAMAGE] = other.weapon_damage;
 		held_weapons[# n, W_SPREAD] = other.weapon_spread;

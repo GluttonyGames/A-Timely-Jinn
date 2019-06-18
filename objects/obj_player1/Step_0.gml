@@ -1,7 +1,13 @@
 /// @description Move and do other stuff
+var _x_input, _y_input
 
-var _x_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));
-var _y_input = keyboard_check(ord("S")) - keyboard_check(ord("W"));
+if (pad_index = -1) {
+	_x_input = keyboard_check(ord("D")) - keyboard_check(ord("A"));
+	_y_input = keyboard_check(ord("S")) - keyboard_check(ord("W"));
+} else {
+	_x_input = gamepad_axis_value(pad_index, gp_axislh);
+	_y_input = gamepad_axis_value(pad_index, gp_axislv);
+}
 
 x_speed_ += _x_input * acceleration_;
 y_speed_ += _y_input * acceleration_;
@@ -68,49 +74,80 @@ if (y_speed_ > 0) {
 }
 
 check_timer --;
-if (mouse_wheel_down() && check_timer < 0) {
-	check_timer = 10;
-	if (current_weapon > 0) {
-		current_weapon --;
-		reload_ = held_weapons[# current_weapon, W_RELOAD];
-	}
-} else if (mouse_wheel_up() && check_timer < 0) {
-	check_timer = 10;
-	if (current_weapon < 32) {
-		if (held_weapons[# current_weapon+1, W_ID] != -1) {
-			current_weapon ++;
+if (pad_index != -1) {
+	if (gamepad_button_check(pad_index, gp_shoulderl) && check_timer < 0) {
+		check_timer = 10;
+		if (current_weapon > 0) {
+			current_weapon --;
 			reload_ = held_weapons[# current_weapon, W_RELOAD];
+		}
+	} else if (gamepad_button_check(pad_index, gp_shoulderr) && check_timer < 0) {
+		check_timer = 10;
+		if (current_weapon < 32) {
+			if (current_weapon < number_of_weapons-1) {
+				current_weapon ++;
+				reload_ = held_weapons[# current_weapon, W_RELOAD];
+			}
+		}
+	}
+} else {
+	if (mouse_wheel_up() && check_timer < 0) {
+		check_timer = 10;
+		if (current_weapon > 0) {
+			current_weapon --;
+			reload_ = held_weapons[# current_weapon, W_RELOAD];
+		}
+	} else if (mouse_wheel_down() && check_timer < 0) {
+		check_timer = 10;
+		if (current_weapon < 32) {
+			if (current_weapon < number_of_weapons-1) {
+				current_weapon ++;
+				reload_ = held_weapons[# current_weapon, W_RELOAD];
+			}
 		}
 	}
 }
 
-reload_--;
-if(reload_ > 0) exit;
-if(!mouse_check_button_pressed(mb_left)) exit;
-var _range = held_weapons[# current_weapon, W_DISTANCE];
-var _mouse_dir = point_direction(x, y, mouse_x, mouse_y); // Get direction of mouse from player
-var _cone_range = held_weapons[# current_weapon, W_SPREAD] / 2; //Half the cone's angle
+if (reload_ > -1) {
+	reload_--;
+} else {
+	if (pad_index != -1) {
+		if(!gamepad_button_check(pad_index, gp_shoulderrb)) exit;
+	} else {
+		if(!mouse_check_button_pressed(mb_left)) exit;
+	}
+	var _range = held_weapons[# current_weapon, W_DISTANCE];
+	var _stick_dir = 0;
+	if (pad_index != -1) {
+		if (gamepad_axis_value(pad_index, gp_axisrh) != 0 || gamepad_axis_value(pad_index, gp_axisrv) != 0) {
+			_stick_dir = point_direction(0, 0, gamepad_axis_value(pad_index, gp_axisrh), -gamepad_axis_value(pad_index, gp_axislv));
+		}
+	} else {
+		_stick_dir = point_direction(x, y, mouse_x, mouse_y); // Get direction of mouse from player
+	}
+	var _cone_range = held_weapons[# current_weapon, W_SPREAD] / 2; //Half the cone's angle
 
-with(obj_enemy)
-{ // Repeat for every enemy in room
-    //Check all the corners
-    var _hit = false;
+	with(obj_enemy)
+	{ // Repeat for every enemy in room
+		//Check all the corners
+		var _hit = false;
     
-    if(abs(angle_difference(_mouse_dir,point_direction(other.x,other.y,bbox_left,bbox_top))) <= _cone_range &&
-         point_distance(other.x,other.y,bbox_left,bbox_top) <= _range)
-            _hit=true;
-    else if(abs(angle_difference(_mouse_dir,point_direction(other.x,other.y,bbox_left,bbox_bottom))) <= _cone_range &&
-         point_distance(other.x,other.y,bbox_left,bbox_bottom) <= _range)
-            _hit=true;
-    else if(abs(angle_difference(_mouse_dir,point_direction(other.x,other.y,bbox_right,bbox_top))) <= _cone_range &&
-         point_distance(other.x,other.y,bbox_right,bbox_top) <= _range)
-            _hit=true;
-    else if(abs(angle_difference(_mouse_dir,point_direction(other.x,other.y,bbox_right,bbox_bottom))) <= _cone_range &&
-         point_distance(other.x,other.y,bbox_right,bbox_bottom) <= _range)
-            _hit=true;
+		if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_top))) <= _cone_range &&
+			    point_distance(other.x,other.y,bbox_left,bbox_top) <= _range)
+			    _hit=true;
+		else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_bottom))) <= _cone_range &&
+			    point_distance(other.x,other.y,bbox_left,bbox_bottom) <= _range)
+			    _hit=true;
+		else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_top))) <= _cone_range &&
+			    point_distance(other.x,other.y,bbox_right,bbox_top) <= _range)
+			    _hit=true;
+		else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_bottom))) <= _cone_range &&
+			    point_distance(other.x,other.y,bbox_right,bbox_bottom) <= _range)
+			    _hit=true;
     
-    if(!_hit) continue; //None of the corners are within our cone
+		if(!_hit) continue; //None of the corners are within our cone
   
-    //If we got this far, we got a hit!
-    melee_attack(obj_player1, id, other.held_weapons, other.current_weapon);
+		//If we got this far, we got a hit!
+		melee_attack(other, id, other.held_weapons, other.current_weapon);
+	}
 }

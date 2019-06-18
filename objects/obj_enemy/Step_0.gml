@@ -17,8 +17,8 @@ if (health_ <= 0) {
 	y_speed_ = 0;
 }
 
-x += x_speed_;
-y += y_speed_;
+//x += x_speed_;
+//y += y_speed_;
 
 var xx = lerp(0, knockback_x, .2);
 knockback_x -= xx;

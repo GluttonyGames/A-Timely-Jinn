@@ -7,6 +7,6 @@ var w_ = ds_grid_width(grid_);
 
 for (var yy_ = 0; yy_ < h_; yy_++) {
 	for (var xx_ = 0; xx_ < w_; xx_++) {
-		draw_text(x_ + 20*xx_, y_ + 20*yy_, grid_[# xx_, yy_]);
+		draw_text(x_ + 30*xx_, y_ + 30*yy_, grid_[# xx_, yy_]);
 	}
 }

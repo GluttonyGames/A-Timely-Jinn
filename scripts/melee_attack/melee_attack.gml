@@ -14,12 +14,15 @@ var knock_x = lengthdir_x(weapon_array_[# current_weapon_, W_KNOCKBACK], enemy_a
 var knock_y = lengthdir_y(weapon_array_[# current_weapon_, W_KNOCKBACK], enemy_angle_+180); // Calculate y-coord of knockback
 enemy_.knockback_x -= knock_x; // Set x-coord of knockback
 enemy_.knockback_y -= knock_y; // Set y-coord  of knockback
-player_.reload_ = weapon_array_[# current_weapon_, W_RELOAD]; // Reset reload based on current weapon
 
 weapon_array_[# current_weapon_, W_DURABILITY] -= 1; // Subtract damage from weapon durability
 if (weapon_array_[# current_weapon_, W_DURABILITY] < 1) {
 	ds_grid_set_region(weapon_array_, current_weapon_, W_ID, current_weapon_, W_WEIGHT, -1);
-	scr_delete_row(weapon_array_, current_weapon_);
-	current_weapon_ = 0;
+	scr_delete_colomn(weapon_array_, current_weapon_);
+	if (current_weapon_ != 0) {
+		current_weapon_ -= 1;
+	}
 	player_.number_of_weapons -= 1;
 }
+
+player_.reload_ = weapon_array_[# current_weapon_, W_RELOAD]; // Reset reload based on current weapon

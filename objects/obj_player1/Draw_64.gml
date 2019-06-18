@@ -3,8 +3,9 @@ window_width = window_get_width();
 window_height = window_get_height();
 
 // Debug drawing
-//draw_text(10, 10, held_weapons[# current_weapon, W_DURABILITY]);
-ds_grid_print(held_weapons, 5, 5);
+//draw_text(30, 30, gamepad_axis_value(obj_player2.pad_index, gp_axislh));
+//draw_text(30, 100, gamepad_axis_value(obj_player2.pad_index, gp_axislv));
+//ds_grid_print(held_weapons, 5, 5);
 
 // Hotbar
 var bbox_thickness = 8;
