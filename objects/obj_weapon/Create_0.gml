@@ -1,4 +1,6 @@
 /// @description Set Correct Stats
+global.weapon_stats = 10;
+
 weapon_id = 0;
 
 weapon_damage = 69;
@@ -9,3 +11,4 @@ weapon_durability = 69;
 weapon_knockback = 69;
 weapon_reload = 69 * 60;
 weapon_weight = 69;
+weapon_type = TYPE_MELEE;

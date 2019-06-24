@@ -11,5 +11,5 @@ ds_grid_set_grid_region(grid, grid, col+1, 0, w-1, h-1, col, 0);
 if (w > 1) {
 	ds_grid_resize(grid, w-1, h);
 } else {
-	ds_grid_set_region(grid, 0, 0, 0, 8, -1);	
+	ds_grid_set_region(grid, 0, 0, 0, global.weapon_stats-1, -1);	
 }

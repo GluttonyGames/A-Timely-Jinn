@@ -12,6 +12,7 @@ switch(weapon_id) {
 		weapon_knockback = 20;
 		weapon_reload = 30;
 		weapon_weight = 2;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 1: // Big Sword
 		weapon_damage = 30;
@@ -22,6 +23,7 @@ switch(weapon_id) {
 		weapon_knockback = 40;
 		weapon_reload = 3 * 60;
 		weapon_weight = 6;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 2: // Little Sword
 		weapon_damage = 15;
@@ -32,6 +34,7 @@ switch(weapon_id) {
 		weapon_knockback = 4;
 		weapon_reload = 1 * 60;
 		weapon_weight = 1;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 3: // Axe
 		weapon_damage = 30;
@@ -42,6 +45,7 @@ switch(weapon_id) {
 		weapon_knockback = 60;
 		weapon_reload = 4 * 60;
 		weapon_weight = 4;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 4: // Double Axe
 		weapon_damage = 35;
@@ -52,6 +56,7 @@ switch(weapon_id) {
 		weapon_knockback = 70;
 		weapon_reload = 6 * 60;
 		weapon_weight = 6;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 5: // Large Knife
 		weapon_damage = 15;
@@ -62,6 +67,7 @@ switch(weapon_id) {
 		weapon_knockback = 60;
 		weapon_reload = 4 * 60;
 		weapon_weight = 4;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 6: // Large Block
 		weapon_damage = 45;
@@ -72,6 +78,7 @@ switch(weapon_id) {
 		weapon_knockback = 60;
 		weapon_reload = 7 * 60;
 		weapon_weight = 7;
+		weapon_type = TYPE_MELEE;
 		break;
 	case 7: // Large Fork
 		weapon_damage = 8;
@@ -82,5 +89,17 @@ switch(weapon_id) {
 		weapon_knockback = 20;
 		weapon_reload = 30;
 		weapon_weight = 1;
+		weapon_type = TYPE_MELEE;
+		break;
+	case 8: // Bow
+		weapon_damage = 10;
+		weapon_spread = 4;
+		weapon_shield = 0;
+		weapon_distance = 35;
+		weapon_durability = 80;
+		weapon_knockback = 10;
+		weapon_reload = 1.5 * 60;
+		weapon_weight = 1;
+		weapon_type = TYPE_RANGED;
 		break;
 }

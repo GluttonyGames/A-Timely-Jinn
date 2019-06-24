@@ -17,7 +17,7 @@ enemy_.knockback_y -= knock_y; // Set y-coord  of knockback
 
 weapon_array_[# current_weapon_, W_DURABILITY] -= 1; // Subtract damage from weapon durability
 if (weapon_array_[# current_weapon_, W_DURABILITY] < 1) {
-	ds_grid_set_region(weapon_array_, current_weapon_, W_ID, current_weapon_, W_WEIGHT, -1);
+	ds_grid_set_region(weapon_array_, current_weapon_, 0, current_weapon_, global.weapon_stats-1, -1);
 	scr_delete_colomn(weapon_array_, current_weapon_);
 	if (current_weapon_ != 0) {
 		current_weapon_ -= 1;

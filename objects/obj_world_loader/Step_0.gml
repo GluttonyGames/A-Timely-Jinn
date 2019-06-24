@@ -4,6 +4,7 @@ if (obj_player1.x < 0) {
 	obj_player1.x = room_width;
 	obj_player2.x = obj_player1.x;
 	obj_player2.y = obj_player1.y;
+	save_world(global.world_id, global.tile_id);
 	create_world(global.world_id, global.tile_id, _wall_map_id, grid_);
 	show_debug_message(global.tile_id);
 } else if (obj_player1.x > room_width) {
@@ -11,6 +12,7 @@ if (obj_player1.x < 0) {
 	obj_player1.x = 0;
 	obj_player2.x = obj_player1.x;
 	obj_player2.y = obj_player1.y;
+	save_world(global.world_id, global.tile_id);
 	create_world(global.world_id, global.tile_id, _wall_map_id, grid_);
 	show_debug_message(global.tile_id);
 } else if (obj_player1.y < 0) {
@@ -18,6 +20,7 @@ if (obj_player1.x < 0) {
 	obj_player1.y = room_height;
 	obj_player2.x = obj_player1.x;
 	obj_player2.y = obj_player1.y;
+	save_world(global.world_id, global.tile_id);
 	create_world(global.world_id, global.tile_id, _wall_map_id, grid_);
 	show_debug_message(global.tile_id);
 } else if (obj_player1.y > room_height) {
@@ -25,6 +28,7 @@ if (obj_player1.x < 0) {
 	obj_player1.y = 0;
 	obj_player2.x = obj_player1.x;
 	obj_player2.y = obj_player1.y;
+	save_world(global.world_id, global.tile_id);
 	create_world(global.world_id, global.tile_id, _wall_map_id, grid_);
 	show_debug_message(global.tile_id);
 }

@@ -10,3 +10,7 @@
 #macro W_KNOCKBACK 6
 #macro W_RELOAD 7
 #macro W_WEIGHT 8
+#macro W_TYPE 9
+
+#macro TYPE_MELEE 0
+#macro TYPE_RANGED 1

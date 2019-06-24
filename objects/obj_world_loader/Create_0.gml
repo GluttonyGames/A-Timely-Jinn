@@ -2,8 +2,6 @@
 randomize();
 room_speed = 60;
 
-shadow_surface_ = noone;
-
 // Get the tile layer map id
 _wall_map_id = layer_tilemap_get_id("WallTiles");
 

@@ -10,9 +10,10 @@ if (number_of_weapons < 32) {
 		held_weapons[# 0, W_KNOCKBACK] = other.weapon_knockback;
 		held_weapons[# 0, W_RELOAD] = other.weapon_reload;
 		held_weapons[# 0, W_WEIGHT] = other.weapon_weight;
+		held_weapons[# 0, W_TYPE] = other.weapon_type;
 	} else {
 		var n = number_of_weapons	/// [id, damage, spread, shield, distance]
-		ds_grid_resize(held_weapons, n+1, 9);
+		ds_grid_resize(held_weapons, n+1, global.weapon_stats);
 		held_weapons[# n, W_ID] = other.weapon_id;
 		held_weapons[# n, W_DAMAGE] = other.weapon_damage;
 		held_weapons[# n, W_SPREAD] = other.weapon_spread;
@@ -22,6 +23,7 @@ if (number_of_weapons < 32) {
 		held_weapons[# n, W_KNOCKBACK] = other.weapon_knockback;
 		held_weapons[# n, W_RELOAD] = other.weapon_reload;
 		held_weapons[# n, W_WEIGHT] = other.weapon_weight;
+		held_weapons[# n, W_TYPE] = other.weapon_type;
 	}
 	number_of_weapons ++;
 	instance_destroy(other);

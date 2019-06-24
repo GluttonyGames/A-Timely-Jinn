@@ -31,8 +31,18 @@ if (_y_input == 0) {
 if (_x_input == 0 && _y_input == 0) {
 	image_speed = 0;
 	image_index = 0;
+	walking = false;
 } else {
 	image_speed = 0.7;
+	walking = true;
+}
+
+if (walking != was_walking && walking) {
+	audio_play_sound(snd_walk_0, 25, true);
+	was_walking = walking;
+} else if (walking != was_walking && !walking) {
+	audio_pause_sound(snd_walk_0);
+	was_walking = walking;
 }
 
 x += x_speed_;
@@ -120,34 +130,39 @@ if (reload_ > -1) {
 	var _stick_dir = 0;
 	if (pad_index != -1) {
 		if (gamepad_axis_value(pad_index, gp_axisrh) != 0 || gamepad_axis_value(pad_index, gp_axisrv) != 0) {
-			_stick_dir = point_direction(0, 0, gamepad_axis_value(pad_index, gp_axisrh), -gamepad_axis_value(pad_index, gp_axislv));
+			_stick_dir = point_direction(0, 0, gamepad_axis_value(pad_index, gp_axisrh), gamepad_axis_value(pad_index, gp_axisrv));
 		}
 	} else {
 		_stick_dir = point_direction(x, y, mouse_x, mouse_y); // Get direction of mouse from player
 	}
 	var _cone_range = held_weapons[# current_weapon, W_SPREAD] / 2; //Half the cone's angle
-
-	with(obj_enemy)
-	{ // Repeat for every enemy in room
-		//Check all the corners
-		var _hit = false;
+	
+	if (held_weapons[# current_weapon, W_TYPE] == TYPE_RANGED) {
+		ranged_attack(self, held_weapons, current_weapon, _stick_dir);
+	} else {
+		with(obj_enemy)
+		{ // Repeat for every enemy in room
+			//Check all the corners
+			var _hit = false;
     
-		if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_top))) <= _cone_range &&
-			    point_distance(other.x,other.y,bbox_left,bbox_top) <= _range)
-			    _hit=true;
-		else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_bottom))) <= _cone_range &&
-			    point_distance(other.x,other.y,bbox_left,bbox_bottom) <= _range)
-			    _hit=true;
-		else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_top))) <= _cone_range &&
-			    point_distance(other.x,other.y,bbox_right,bbox_top) <= _range)
-			    _hit=true;
-		else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_bottom))) <= _cone_range &&
-			    point_distance(other.x,other.y,bbox_right,bbox_bottom) <= _range)
-			    _hit=true;
+			if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_top))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_left,bbox_top) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_bottom))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_left,bbox_bottom) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_top))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_right,bbox_top) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_bottom))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_right,bbox_bottom) <= _range)
+				    _hit=true;
     
-		if(!_hit) continue; //None of the corners are within our cone
+			if(!_hit) continue; //None of the corners are within our cone
   
-		//If we got this far, we got a hit!
-		melee_attack(other, id, other.held_weapons, other.current_weapon);
+			//If we got this far, we got a hit!
+			melee_attack(other, id, other.held_weapons, other.current_weapon);
+			audio_play_sound(snd_sword_0, 20, false);
+		}
 	}
 }
