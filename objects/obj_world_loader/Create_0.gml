@@ -14,4 +14,7 @@ ds_grid_set_region(grid_, 0, 0, width_, height_, 0); // Set it all to VOID (empt
 
 global.world_id = 0;
 global.tile_id = 0;
-create_world(global.world_id, global.tile_id, _wall_map_id, grid_);
+create_world_tiles(global.world_id, global.tile_id, _wall_map_id, grid_);
+//load_world_objects(global.world_id, global.tile_id, "Instances");
+
+global.weapon_stats = 10;

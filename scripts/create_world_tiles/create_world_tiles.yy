@@ -1,8 +1,8 @@
 {
-    "id": "fd61f2a8-8848-4849-914c-7b05c5ed0a92",
+    "id": "8bc9ba0c-3b0b-4f6a-9000-ba3e88f0b851",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "save_world",
+    "name": "create_world_tiles",
     "IsCompatibility": false,
     "IsDnD": false
 }

@@ -1,8 +1,8 @@
 {
-    "id": "8bc9ba0c-3b0b-4f6a-9000-ba3e88f0b851",
+    "id": "64fa9c3c-d15c-45c3-89c5-97cb90885b6d",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "create_world",
+    "name": "save_world_objects",
     "IsCompatibility": false,
     "IsDnD": false
 }

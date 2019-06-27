@@ -33,7 +33,8 @@ if (menu_active) {
 	} else if (gamepad_button_check_pressed(player1_pad_id, gp_face1)||gamepad_button_check_pressed(player2_pad_id, gp_face1)||keyboard_check_pressed(vk_enter)) {
 		switch (menu_item_active) {
 			case 0:
-				save_world(global.world_id, global.tile_id);
+				save_world_objects(global.world_id, global.tile_id);
+				game_end();
 				break;
 			case 1:
 				game_end();

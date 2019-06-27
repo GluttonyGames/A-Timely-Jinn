@@ -1,6 +1,4 @@
 /// @description Set Correct Stats
-global.weapon_stats = 10;
-
 weapon_id = 0;
 
 weapon_damage = 69;
