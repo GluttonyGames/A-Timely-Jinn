@@ -24,3 +24,6 @@ angle = 0;
 
 walking = false;
 was_walking = false;
+
+knockback_x = 0;
+knockback_y = 0;

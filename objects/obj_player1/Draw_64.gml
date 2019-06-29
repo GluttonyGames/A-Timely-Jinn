@@ -3,7 +3,7 @@ window_width = window_get_width();
 window_height = window_get_height();
 
 // Debug drawing
-draw_text(30, 30, point_direction(0, 0, gamepad_axis_value(pad_index, gp_axisrh), gamepad_axis_value(pad_index, gp_axisrv)));
+draw_text(30, 30, global.tile_id);
 //draw_text(30, 100, gamepad_axis_value(obj_player2.pad_index, gp_axislv));
 //ds_grid_print(held_weapons, 5, 5);
 

@@ -26,3 +26,9 @@ hurt_timer = 0;
 
 walking = false;
 was_walking = false;
+
+knockback_x = 0;
+knockback_y = 0;
+
+vert_dir = 1;
+horz_dir = 0;

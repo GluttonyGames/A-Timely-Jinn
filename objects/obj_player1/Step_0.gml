@@ -1,4 +1,5 @@
 /// @description Move and do other stuff
+if (obj_controller.menu_active) exit;
 var _x_input, _y_input
 
 if (pad_index = -1) {
@@ -49,19 +50,19 @@ x += x_speed_;
 
 if (x_speed_ > 0) {
 	// Collide right
-	image_xscale = 1;
 	if (grid_place_meeting(self, obj_world_loader.grid_)) {
 		x = bbox_right&~(CELL_WIDTH-1);
 		x -= bbox_right-x;
 		x_speed_ = 0;
+		horz_dir = 1
 	}
 } else if (x_speed_ < 0){
 	// Collide left
-	image_xscale = -1;
 	if (grid_place_meeting(self, obj_world_loader.grid_)) {
 		x = bbox_left&~(CELL_WIDTH-1);
 		x += CELL_WIDTH+x-bbox_left;
 		x_speed_ = 0;
+		horz_dir = -1;
 	}
 }
 
@@ -73,6 +74,7 @@ if (y_speed_ > 0) {
 		y = bbox_bottom&~(CELL_HEIGHT-1);
 		y -= bbox_bottom-y;
 		y_speed_ = 0;
+		vert_dir = 1;
 	}
 } else if (y_speed_ < 0){
 	// Collide up
@@ -80,8 +82,17 @@ if (y_speed_ > 0) {
 		y = bbox_top&~(CELL_HEIGHT-1);
 		y += CELL_HEIGHT+y-bbox_top;
 		y_speed_ = 0;
+		vert_dir = -1;
 	}
 }
+
+var _xx = lerp(0, knockback_x, .2);
+knockback_x -= _xx;
+x += _xx;
+
+var _yy = lerp(0, knockback_y, .2);
+knockback_y -= _yy;
+y += _yy;
 
 check_timer --;
 if (pad_index != -1) {
@@ -141,6 +152,30 @@ if (reload_ > -1) {
 		ranged_attack(self, held_weapons, current_weapon, _stick_dir);
 	} else {
 		with(obj_enemy)
+		{ // Repeat for every enemy in room
+			//Check all the corners
+			var _hit = false;
+    
+			if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_top))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_left,bbox_top) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_bottom))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_left,bbox_bottom) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_top))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_right,bbox_top) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_bottom))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_right,bbox_bottom) <= _range)
+				    _hit=true;
+    
+			if(!_hit) continue; //None of the corners are within our cone
+  
+			//If we got this far, we got a hit!
+			melee_attack(other, id, other.held_weapons, other.current_weapon);
+			audio_play_sound(snd_sword_0, 20, false);
+		}
+		with(obj_player2)
 		{ // Repeat for every enemy in room
 			//Check all the corners
 			var _hit = false;

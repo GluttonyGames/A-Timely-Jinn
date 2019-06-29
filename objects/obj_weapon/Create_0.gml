@@ -7,6 +7,6 @@ weapon_shield = 69;
 weapon_distance = 69;
 weapon_durability = 69;
 weapon_knockback = 69;
-weapon_reload = 69 * 60;
+weapon_reload = 69;
 weapon_weight = 69;
 weapon_type = TYPE_MELEE;

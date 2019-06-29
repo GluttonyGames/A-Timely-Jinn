@@ -13,8 +13,8 @@ grid_ = ds_grid_create(width_, height_); // Create a ds grid map with the width 
 ds_grid_set_region(grid_, 0, 0, width_, height_, 0); // Set it all to VOID (empty) cells
 
 global.world_id = 0;
-global.tile_id = 0;
+global.tile_id = 225;
 create_world_tiles(global.world_id, global.tile_id, _wall_map_id, grid_);
-//load_world_objects(global.world_id, global.tile_id, "Instances");
+load_world_objects(global.world_id, global.tile_id, layer);
 
 global.weapon_stats = 10;

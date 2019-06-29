@@ -1,4 +1,5 @@
 /// @description Move and do other stuff
+if (obj_controller.menu_active) exit;
 var _x_input, _y_input
 
 if (pad_index = -1) {
@@ -86,6 +87,14 @@ if (y_speed_ > 0) {
 _x_input = 0;
 _y_input = 0;
 
+var _xx = lerp(0, knockback_x, .2);
+knockback_x -= _xx;
+x += _xx;
+
+var _yy = lerp(0, knockback_y, .2);
+knockback_y -= _yy;
+y += _yy;
+
 check_timer --;
 if (pad_index != -1) {
 	if (gamepad_button_check(pad_index, gp_shoulderl) && check_timer < 0) {
@@ -144,6 +153,29 @@ if (reload_ > -1) {
 		ranged_attack(self, held_weapons, current_weapon, _stick_dir);
 	} else {
 		with(obj_enemy)
+		{ // Repeat for every enemy in room
+			//Check all the corners
+			var _hit = false;
+    
+			if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_top))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_left,bbox_top) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_left,bbox_bottom))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_left,bbox_bottom) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_top))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_right,bbox_top) <= _range)
+				    _hit=true;
+			else if(abs(angle_difference(_stick_dir,point_direction(other.x,other.y,bbox_right,bbox_bottom))) <= _cone_range &&
+				    point_distance(other.x,other.y,bbox_right,bbox_bottom) <= _range)
+				    _hit=true;
+    
+			if(!_hit) continue; //None of the corners are within our cone
+  
+			//If we got this far, we got a hit!
+			melee_attack(other, id, other.held_weapons, other.current_weapon);
+		}
+		with(obj_player1)
 		{ // Repeat for every enemy in room
 			//Check all the corners
 			var _hit = false;

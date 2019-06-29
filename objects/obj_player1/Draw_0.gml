@@ -1,4 +1,6 @@
 /// @description Draw weapon stat gui
+
+
 if ((held_weapons[# 0, W_ID] != -1) && current_weapon < number_of_weapons) {
 	
 	if (reload_ >= 0) {

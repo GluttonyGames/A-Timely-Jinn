@@ -34,7 +34,6 @@ if (menu_active) {
 		switch (menu_item_active) {
 			case 0:
 				save_world_objects(global.world_id, global.tile_id);
-				game_end();
 				break;
 			case 1:
 				game_end();
